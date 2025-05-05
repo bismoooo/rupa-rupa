@@ -232,7 +232,7 @@
       </li><!-- End Beranda Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.php">
+        <a class="nav-link collapsed" href="kategori.php">
         <i class="bi bi-columns"></i>
           <span>Kategori Produk</span>
         </a>
