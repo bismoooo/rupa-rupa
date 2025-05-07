@@ -102,7 +102,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="kategori.php">
-        <i class="bi bi-columns"></i>
+        <i class="bi bi-box-seam"></i>
           <span>Kategori Produk</span>
         </a>
       </li><!-- End Kategori Page Nav -->
@@ -137,7 +137,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="Pengguna.php">
-          <i class="bi bi-dash-circle"></i>
+          <i class="bi bi-person"></i>
           <span>Pengguna</span>
         </a>
       </li><!-- End Penguna Page Nav -->

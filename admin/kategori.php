@@ -125,7 +125,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="keranjang.php">
-          <i class="bi bi-envelope"></i>
+        <i class="bi bi-cart3"></i>
           <span>Keranjang</span>
         </a>
       </li><!-- End Keranjang Page Nav -->
