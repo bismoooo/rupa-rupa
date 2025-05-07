@@ -95,14 +95,14 @@
 
       <li class="nav-item">
         <a class="nav-link " href="index.php">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-house-door"></i>
           <span>Beranda</span>
         </a>
       </li><!-- End Beranda Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="kategori.php">
-        <i class="bi bi-box-seam"></i>
+        <i class="bi bi-tags"></i>
           <span>Kategori Produk</span>
         </a>
       </li><!-- End Kategori Page Nav -->
