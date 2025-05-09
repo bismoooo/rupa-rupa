@@ -205,13 +205,13 @@
                                     $sql_query = "SELECT tb_produk.*, tb_kategori.nm_kategori FROM tb_produk LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori";
 
                                     if (!empty($query)) {
-                                        $sql_query .= " WHERE tb_produk.nama_produk LIKE '%$query%' OR tb_kategori.desk LIKE '%$query%'";
+                                        $sql_query .= " WHERE tb_produk.nm_produk LIKE '%$query%' OR tb_kategori.desk LIKE '%$query%'";
                                     }
 
                                     $sql = mysqli_query($koneksi, $sql_query);
 
                                     if (mysqli_num_rows($sql) > 0) {
-                                        while ($hasil = mysqly_fetch_array($sql)) {
+                                        while ($hasil = mysqli_fetch_array($sql)) {
                                     ?>
                                     <tr>
                                         <td><?php echo $no++; ?></td>
@@ -221,8 +221,8 @@
                                         <td><?php echo $hasil['desk']; ?></td>
                                         <td><?php echo $hasil['nm_kategori']; ?></td>
                                         <td>
-                                            <?php if (!empety($hasil['gambar'])) { ?>
-                                            <img src ="produk_img/<?php echo $hasil['gambar']; ?>}"  width ="100">
+                                            <?php if (!empty($hasil['gambar'])) { ?>
+                                            <img src ="produk_img/<?php echo $hasil['gambar']; ?>"  width ="100">
                                             <?php } else { ?>
                                                 tidak ada gambar
                                             <?php } ?>
@@ -231,7 +231,7 @@
                                             <a href="e_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-warning">
                                                 <i class="bi bi-pencil-square"></i>
                                             </a>
-                                            <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" oneclick ="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                                            <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick ="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </td>
