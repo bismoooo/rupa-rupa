@@ -1,11 +1,11 @@
 <?php
 include "koneksi.php";
 
-//Mendapatkan kode produk otomatis
+// Mendapatkan kode produk otomatis
 $auto = mysqli_query($koneksi, "SELECT MAX(id_produk) AS max_code FROM tb_produk");
 $hasil = mysqli_fetch_array($auto);
 $code = $hasil['max_code'];
-$urutan = (int) substr($code, 1, 3);
+$urutan = (int)substr($code, 1, 3);
 $urutan++;
 $huruf = "P";
 $id_produk = $huruf . sprintf("%03s", $urutan);
@@ -17,35 +17,35 @@ if (isset($_POST['simpan'])) {
     $desk = $_POST['desk'];
     $id_kategori = $_POST['id_kategori'];
 
-    // Upload gambar
+    // Upload Gambar
     $imgfile = $_FILES['gambar']['name'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
     $extension = strtolower(pathinfo($imgfile, PATHINFO_EXTENSION));
 
-    $dir = "produk_img/"; //Direktori penyimpanan gambar
-    $allowed_extensions = array("jpg", "jpeg", "png", "webp");
+    $dir = "produk_img/"; // Direktori penyimpanan gambar
+    $allowed_extension = array("jpg", "jpeg", "png", "webp");
 
-    if (!in_array($extension, $allowed_extensions)) {
-        echo "<script>alert('Format tidak valid. Hanya jpg, jpeg, png, dan webp yang diperbolehkan.')</script>";
+    if (!in_array($extension, $allowed_extension)) {
+        echo "<script>alert('Format tidak valid. Hanya jpg, jpeg, png, dan webp yang diperbolehkan.');</script>";
     } else {
         //Rename file gambar agar unik
-        $imgnewfile = md5(time() . $imgfile) . '.' . $extension;
+        $imgnewfile = md5(time() . $imgfile) . "." . $extension;
         move_uploaded_file($tmp_file, $dir . $imgnewfile);
 
-        //Simpan data ke database
-        $query = mysqli_query($koneksi, "INSERT INTO tb_produk (id_produk, nm_produk, harga, stok, desk, id_kategori, gambar) VALUES ('$id_produk', '$nm_produk', '$harga', '$stok', '$desk', '$id_kategori', '$imgnewfile')");
+        // Simpan data ke database
+        $query = mysqli_query($koneksi, "INSERT INTO tb_produk(id_produk, nm_produk, harga, stok, desk, id_kategori, gambar) VALUES ('$id_produk', '$nm_produk', '$harga', '$stok', '$desk', '$id_kategori', '$imgnewfile')");
 
         if ($query) {
-            echo "<script>alert('Produk berhasil ditambahkan');</script>";
-            header("refresh:0; produk.php");
+            echo "<script>alert('Produk berhasil ditambahkan!')</script>";
+            header("refresh:0, produk.php");
         } else {
-            echo "<script>alert('Gagal menambahkan produk!');</script>";
-            header("refresh:0; produk.php");
+            echo "<script>alert('Gagal menambahkan produk!')</script>";
+            header("refresh:0, produk.php");
         }
     }
 }
 ?>
-         
+   
 <!DOCTYPE html>
 <html lang="en">
 
