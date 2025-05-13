@@ -1,4 +1,23 @@
 <?php
+session_start();
+include "koneksi.php";
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
+    echo "<script>
+    alert('Akses ditolak! Halaman ini hanya untuk Admin');
+    window.location.href='login.php'
+  </script>";
+  exit;
+}
+?>
+<?php
 include "koneksi.php";
 
 if (isset($_POST['simpan'])) {
@@ -213,7 +232,7 @@ if (isset($_POST['simpan'])) {
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>ruparupa</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>RupaRupa</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
