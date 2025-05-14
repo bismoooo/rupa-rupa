@@ -32,8 +32,6 @@ if (isset($_POST["login"])) {
   }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,7 +115,7 @@ if (isset($_POST["login"])) {
 
               <div class="credits">
                 Designed by <a href="https://www.instagram.com/bsmawhy"
-                target="_blank">Bismooooooooo</a>
+      target="_blank">Bismooooooooo</a>
               </div>
 
             </div>
