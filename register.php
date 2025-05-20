@@ -1,13 +1,16 @@
 <?php
+
 require 'admin/koneksi.php';
 require 'function.php';
 $sql = mysqli_query($koneksi, "select * from tb_user");
 $data = mysqli_fetch_array($sql);
 
+
 ?>
 
 <!doctype html>
 <html lang="zxx">
+    
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

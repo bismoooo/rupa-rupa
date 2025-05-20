@@ -126,7 +126,7 @@ if (isset($_POST["login"])) {
                             <h2>Belum Punya Akum Di RupaRupa?</h2>
                             <p>Temukan berbagai pilihan furniture berkualitas untuk hunian Anda.
                              Nikmati penawaran menarik dan pengalaman berbelanja yang mudah</p>
-                            <a href="#" class="btn_3">Daftar Sekarang</a>
+                            <a href="register.php" class="btn_3">Daftar Sekarang</a>
                         </div>
                     </div>
                 </div>
