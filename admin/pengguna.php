@@ -81,7 +81,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="assets/img/jojo.jpeg" alt="Profile" class="rounded-circle">
                         <!-- profile-img.jpg diganti dengan foto kalian -->
                     </a><!-- End Profile Iamge Icon -->
 
@@ -137,7 +137,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" href="keranjang.php">
+                <a class="nav-link collapsed" href="keranjang.php">
                     <i class="bi bi-envelope"></i>
                     <span>Keranjang</span>
                 </a>
@@ -158,7 +158,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             </li><!-- End Laporan Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pengguna.php">
+                <a class="nav-link" href="pengguna.php">
                     <i class="bi bi-dash-circle"></i>
                     <span>Pengguna</span>
                 </a>
