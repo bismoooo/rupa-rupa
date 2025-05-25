@@ -59,26 +59,6 @@
                         <?php session_start(); ?>
                         <?php if (isset($_SESSION['username'])) : ?>
                             <div class="header_icon d-flex">
-                                <!-- Cart Link -->
-                                <?php
-                                include 'admin/koneksi.php';
-
-                                $user_id = $_SESSION['id_user'] ?? null;
-
-                                if ($user_id) {
-                                    $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
-                                    $result = mysqli_query($koneksi, $query);
-                                    $data = mysqli_fetch_assoc($result);
-                                    $jumlah_item = $data['total'] ?? 0;
-                                } else {
-                                    $jumlah_item = 0;
-                                }
-                                ?>
-
-                                <a href="detail_produk.php" id="cartLink" style="position: relative; display: inline-block;">
-                                    <i class="fas fa-cart-plus" style="font-size: 16px;"></i>
-                                    <span class="cart-badge"><?= $jumlah_item ?></span>
-                                </a>
 
                                 <!-- User Dropdown -->
                                 <div class="dropdown user">
