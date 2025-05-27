@@ -2,24 +2,25 @@
 include 'admin/koneksi.php';
 session_start();
 
+// Cek session user
 if (!isset($_SESSION['id_user'])) {
-    echo json_encode(["success" => false, "message" => "Silakan login terlebih dahulu!"]);
+    echo json_encode(['success' => false, "message" => "Silakan login terlebih dahulu!"]);
     exit;
 }
 
 $id_user = $_SESSION['id_user'];
-$tgl_jual = date('Y-m-d H:i:s');
+$tgl_jual = date('Y-n-d H:i:s');
 
-//Ambil semua pesanan pengguna
-$query_pesanan = "SELECT *FROM tb_pesanan WHERE id_user = '$id_user'";
+// Ambil semua pesanan pengguna
+$query_pesanan = "SELECT * FROM tb_pesanan WHERE id_user = '$id_user'";
 $result_pesanan = mysqli_query($koneksi, $query_pesanan);
 
 if (mysqli_num_rows($result_pesanan) == 0) {
-    echo json_encode(["success" => false, "message" => "Keranjang kosong!"]);
+    echo json_encode(['success' => false, "message" => "Keranjang kosong!"]);
     exit;
 }
 
-//Hitung subtotal dan simpan data pesanan
+// Hitung subtotal dan simpan data pesanan
 $subtotal = 0;
 $pesanan_data = [];
 while ($row = mysqli_fetch_assoc($result_pesanan)) {
@@ -27,7 +28,7 @@ while ($row = mysqli_fetch_assoc($result_pesanan)) {
     $subtotal += $row['total'];
 }
 
-//Cek stok semua produk sebelum melanjutkan
+// Cek stok semua produk sebelum melanjutkan
 foreach ($pesanan_data as $pesanan) {
     $id_produk = mysqli_real_escape_string($koneksi, $pesanan['id_produk']);
     $qty = intval($pesanan['qty']);
@@ -37,12 +38,12 @@ foreach ($pesanan_data as $pesanan) {
     $row_stok = mysqli_fetch_assoc($result_stok);
 
     if (!$row_stok || $row_stok['stok'] < $qty) {
-        echo json_encode(["success" => false, "message" => "Stok tidak cukup untuk produk ID: $id_produk"]);
+        echo json_encode(['success' => false, "message" => "Stok tidak cukup untuk produk ID: $id_produk"]);
         exit;
     }
 }
 
-//Hitung diskon
+// Hitung diskon
 $diskon = 0;
 if ($subtotal > 700000 && $subtotal <= 1500000) {
     $diskon = 0.05 * $subtotal;
@@ -65,9 +66,11 @@ if ($last_id) {
 }
 
 // Insert ke tb_jual
-$query_jual = "INSERT INTO tb_jual (id_jual, id_user, tgl_jual, total, diskon) VALUES ('$new_id', '$id_user', '$tgl_jual', '$total_bayar', '$diskon')";
+$query_jual = "INSERT INTO tb_jual (id_jual, id_user, tgl_jual, total, diskon) 
+              VALUES ('$new_id', '$id_user', '$tgl_jual', '$total_bayar', '$diskon')";
+
 if (!mysqli_query($koneksi, $query_jual)) {
-    die(json_encode(["success" => false, "message" => "Gagal insert ke tb_jual:" . mysqli_error($koneksi)]));
+    die(json_encode(['success' => false, "message" => "Gagal insert ke tb_jual: " . mysqli_error($koneksi)]));
 }
 
 // Insert ke tb_jualdtl
@@ -79,11 +82,13 @@ foreach ($pesanan_data as $pesanan) {
 
     $values[] = "('$new_id', '$id_produk', '$qty', '$harga')";
 }
+
 if (!empty($values)) {
-    $query_jualdtl = "INSERT INTO tb_jualdtl (id_jual, id_produk, qty, harga) VALUES " . implode(", ", $values);
+    $query_jualdtl = "INSERT INTO tb_jualdtl (id_jual, id_produk, qty, harga)
+                     VALUES " . implode(", ", $values);
 
     if (!mysqli_query($koneksi, $query_jualdtl)) {
-        die(json_encode(["success" => false, "message" => "Gagal insert ke tb_jualdtl: " . mysqli_error($koneksi)]));
+        die(json_encode(['success' => false, "message" => "Gagal insert ke tb_jualdtl: " . mysqli_error($koneksi)]));
     }
 }
 
@@ -95,15 +100,15 @@ foreach ($pesanan_data as $pesanan) {
     $query_update_stok = "UPDATE tb_produk SET stok = stok - $qty WHERE id_produk = '$id_produk'";
 
     if (!mysqli_query($koneksi, $query_update_stok)) {
-        die(json_encode(["success" => false, "message" => "Gagal update stok produk: " . mysqli_error($koneksi)]));
+        die(json_encode(['success' => false, "message" => "Gagal update stok produk: " . mysqli_error($koneksi)]));
     }
 }
 
 // Hapus data dari tb_pesanan
 $query_hapus = "DELETE FROM tb_pesanan WHERE id_user = '$id_user'";
 if (!mysqli_query($koneksi, $query_hapus)) {
-    die(json_encode(["success" => false, "message" => "Gagal hapus tb_pesanan: " . mysqli_error($koneksi)]));
+    die(json_encode(['success' => false, "message" => "Gagal hapus tb_pesanan: " . mysqli_error($koneksi)]));
 }
 
-echo json_encode(["success" => true]);
+echo json_encode(['success' => true]);
 ?>

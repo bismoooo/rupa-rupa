@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Belanja - RupaRupa</title>
+  <title>Detail produk - RupaRupa</title>
   <link rel="icon" href="img/favicon.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -265,25 +265,26 @@
   <!--================End Single Product Area =================-->
 
   <!--================Product Description Area =================-->
+  <!--================Product Description Area =================-->
   <section class="product_description_area">
     <div class="container">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-            aria-selected="true">Deskripsi</a>
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+            role="tab" aria-controls="home" aria-selected="true">Deskripsi</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-            aria-selected="false">Stok</a>
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+            role="tab" aria-controls="profile" aria-selected="false">Stok</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <p>
-           sofa
-          </p>
+        <div class="tab-pane fade show active" id="home" role="tabpanel"
+          aria-labelledby="home-tab">
+          <p><?php echo nl2br($produk['desk']); ?></p>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade" id="profile" role="tabpanel"
+          aria-labelledby="profile-tab">
           <div class="table-responsive">
             <table class="table">
               <tbody>
@@ -291,12 +292,16 @@
                   <td>
                     <h5>Stok</h5>
                   </td>
+                  <td>
+                    <h5><?php echo $produk['stok']; ?></h5>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
   </section>
+  <!--================End Product Description Area =================-->
   <!--================End Product Description Area =================-->
 
   <!-- product_list part start-->
