@@ -43,7 +43,7 @@
                         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="index.php">Home</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
@@ -51,7 +51,7 @@
                                         Shop
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="category.html"> shop category</a>
+                                        <a class="dropdown-item" href="belanja.php"> shop category</a>
                                         <a class="dropdown-item" href="single-product.html">product details</a>
                                         
                                     </div>

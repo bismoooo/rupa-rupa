@@ -81,13 +81,13 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="assets/img/jojo.jpeg" alt="Profile" class="rounded-circle">
                         <!-- profile-img.jpg diganti dengan foto kalian -->
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Nama Kalian</h6>
+                            <h6>Bismooooooo</h6>
                             <span>Admin</span>
                         </li>
                         <li>
@@ -118,34 +118,34 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi-houses-fill"></i>
                     <span>Beranda</span>
                 </a>
             </li><!-- End Dashboard Nav -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-airplane"></i>
-                    <span>Kategori</span>
+                    <i class="bi bi-list-task"></i>
+                    <span>Kategori Produk</span>
                 </a>
             </li><!-- End Kategori Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link" href="produk.php">
-                    <i class="bi bi-question-circle"></i>
+                    <i class="bi bi-box-seam-fill"></i>
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="keranjang.php">
-                    <i class="bi bi-envelope"></i>
+                    <i class="bi bi-cart4"></i>
                     <span>Keranjang</span>
                 </a>
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-card-list"></i>
+                    <i class="bi bi-cash-stack"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
@@ -159,7 +159,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pengguna.php">
-                    <i class="bi bi-dash-circle"></i>
+                    <i class="bi bi-person-heart"></i>
                     <span>Pengguna</span>
                 </a>
             </li><!-- End pengguna Page Nav -->

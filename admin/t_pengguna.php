@@ -139,35 +139,35 @@ if (isset($_POST['simpan'])) {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-house-door"></i>
+                    <i class="bi bi-houses-fill"></i>
                     <span>Beranda</span>
                 </a>
             </li><!-- End Beranda Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-tags"></i>
+                    <i class="bi bi-list-task"></i>
                     <span>Kategori Produk</span>
                 </a>
             </li><!-- End Kategori Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="produk.php">
-                    <i class="bi bi-shop"></i>
+                    <i class="bi bi-box-seam-fill"></i>
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="keranjang.php">
-                    <i class="bi bi-cart"></i>
+                    <i class="bi bi-cart4"></i>
                     <span>Keranjang</span>
                 </a>
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-receipt"></i>
+                    <i class="bi bi-cash-stack"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
@@ -180,7 +180,7 @@ if (isset($_POST['simpan'])) {
             </li><!-- End Laporan Page Nav -->
             <li class="nav-item">
                 <a class="nav-link" href="pengguna.php">
-                    <i class="bi bi-people"></i>
+                    <i class="bi bi-person-heart"></i>
                     <span>Pengguna</span>
                 </a>
             </li><!-- End Pengguna Page Nav -->
