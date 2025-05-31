@@ -189,20 +189,20 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
                                 // ambil data header transaksi
                                 $jual = mysqli_fetch_assoc(mysqli_query($koneksi, "
-                        SELECT tj.*, tu.username 
-                        FROM tb_jual tj
-                        JOIN tb_user tu ON tj.id_user = tu.id_user
-                        WHERE tj.id_jual = '$id_jual'
-                    "));
+                                SELECT tj.*, tu.username 
+                                FROM tb_jual tj
+                                JOIN tb_user tu ON tj.id_user = tu.id_user
+                                WHERE tj.id_jual = '$id_jual'
+                                "));
 
                                 // ambil data detail transaksi
                                 $detail = mysqli_query($koneksi, "
-                        SELECT tjd.id_produk, tjd.qty, tjd.harga AS subtotal, 
-                               tp.nm_produk, tp.harga AS harga_produk
-                        FROM tb_jualdtl tjd
-                        JOIN tb_produk tp ON tjd.id_produk = tp.id_produk
-                        WHERE tjd.id_jual = '$id_jual'
-                    ");
+                                SELECT tjd.id_produk, tjd.qty, tjd.harga AS subtotal, 
+                                tp.nm_produk, tp.harga AS harga_produk
+                                FROM tb_jualdtl tjd
+                                JOIN tb_produk tp ON tjd.id_produk = tp.id_produk
+                                WHERE tjd.id_jual = '$id_jual'
+                                ");
                                 ?>
 
                                 <table class="table table-striped mt-2">
