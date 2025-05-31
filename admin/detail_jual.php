@@ -64,13 +64,6 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="GET" action="">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
-
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
@@ -146,14 +139,14 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="transaksi.php">
+                <a class="nav-link" href="transaksi.php">
                     <i class="bi bi-cash-stack"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" href="laporan.php">
+                <a class="nav-link collapsed" href="laporan.php">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span>Laporan</span>
                 </a>
@@ -172,10 +165,11 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
      <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Detail Jual</h1>
+            <h1>Laporan</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                    <li class="breadcrumb-item">Transaksi</li>
                     <li class="breadcrumb-item active">Detail Jual</li>
                 </ol>
             </nav>
