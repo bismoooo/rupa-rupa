@@ -105,17 +105,20 @@
                             <div class="header_icon d-flex">
                                 <!-- Cart Link -->
                                 <?php
-                                include 'admin/koneksi.php';
-
-                                $user_id = $_SESSION['id_user'] ?? null;
-
-                                if ($user_id) {
-                                    $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
-                                    $result = mysqli_query($koneksi, $query);
-                                    $data = mysqli_fetch_assoc($result);
-                                    $jumlah_item = $data['total'] ?? 0;
+                               include 'admin/koneksi.php';
+                               
+                               $user_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
+                               
+                               if ($user_id) {
+                                $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
+                                $result = mysqli_query($koneksi, $query);
+                                if (!$result) {
+                                    die("Query error: " . mysqli_error($koneksi));
+                                }
+                                $data = mysqli_fetch_assoc($result);
+                                $jumlah_item = isset($data['total']) ? $data['total'] : 0;
                                 } else {
-                                    $jumlah_item = 0;
+                                $jumlah_item = 0;
                                 }
                                 ?>
 
@@ -185,11 +188,10 @@
 
                             // Ambil semua kategori beserta jumlah produknya
                             $query_kategori = "
-    SELECT k.id_kategori, k.nm_kategori, COUNT(p.id_produk) AS jumlah_produk 
-    FROM tb_kategori k
-    LEFT JOIN tb_produk p ON k.id_kategori = p.id_kategori
-    GROUP BY k.id_kategori
-";
+                            SELECT k.id_kategori, k.nm_kategori, COUNT(p.id_produk) AS jumlah_produk 
+                            FROM tb_kategori k
+                            LEFT JOIN tb_produk p ON k.id_kategori = p.id_kategori
+                            GROUP BY k.id_kategori";
                             $result_kategori = mysqli_query($koneksi, $query_kategori);
                             ?>
 

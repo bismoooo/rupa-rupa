@@ -17,6 +17,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
   exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,21 +63,22 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="GET" action="">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
+         <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="GET" action="">
 
-        <nav class="header-nav ms-auto">
-            <ul class="d-flex align-items-center">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword" value="<?php echo isset($_GET['query']) ? htmlspecialchars($_GET['query']) : ''; ?>">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
 
-                <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="#">
-                        <i class="bi bi-search"></i>
-                    </a>
-                </li><!-- End Search Icon-->
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
 
                 <li class="nav-item dropdown pe-3">
 
@@ -167,7 +169,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
     </aside><!-- End Sidebar-->
 
-    <main id="main" class="main">
+     <main id="main" class="main">
 
         <div class="pagetitle">
             <h1>Produk</h1>
@@ -207,6 +209,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                         <th scope="col">Nama Produk</th>
                                         <th scope="col">Harga</th>
                                         <th scope="col">Stok</th>
+                                        <th scope="col">Deskripsi</th>
                                         <th scope="col">Nama Kategori</th>
                                         <th scope="col">Gambar</th>
                                         <th scope="col">Aksi</th>
@@ -217,50 +220,55 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                     include "koneksi.php";
                                     $no = 1;
 
-                                    // Ambil keyword pencarian dri get
+                                    // Ambil keyword pencarian dari GET
                                     $query = isset($_GET['query']) ? mysqli_real_escape_string($koneksi, $_GET['query']) : '';
 
-                                    //tambahkan where jika query tidak kosong
-                                    $sql_query = "SELECT tb_produk.*, tb_kategori.nm_kategori FROM tb_produk LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori";
+                                    // Tambahkan WHERE jia query tidak kososng
+                                    $sql_query = "SELECT tb_produk.*, tb_kategori.nm_kategori FROM tb_produk 
+                                    LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori";
 
                                     if (!empty($query)) {
-                                        $sql_query .= " WHERE tb_produk.nm_produk LIKE '%$query%' OR tb_kategori.desk LIKE '%$query%'";
+                                        $sql_query .= " WHERE tb_produk.nm_produk LIKE '%$query%' 
+                                        OR tb_kategori.nm_kategori LIKE '%$query%' 
+                                        OR tb_produk.desk LIKE '%$query%'";
+
                                     }
 
                                     $sql = mysqli_query($koneksi, $sql_query);
-
+                                    
                                     if (mysqli_num_rows($sql) > 0) {
                                         while ($hasil = mysqli_fetch_array($sql)) {
                                     ?>
-                                    <tr>
-                                        <td><?php echo $no++; ?></td>
-                                        <td><?php echo $hasil['nm_produk']; ?></td>
-                                        <td>Rp <?php echo number_format($hasil['harga'], 0, ',', '.'); ?></td>
-                                        <td><?php echo $hasil['stok']; ?></td>
-                                        <td><?php echo $hasil['desk']; ?></td>
-                                        <td><?php echo $hasil['nm_kategori']; ?></td>
-                                        <td>
-                                            <?php if (!empty($hasil['gambar'])) { ?>
-                                            <img src ="produk_img/<?php echo $hasil['gambar']; ?>"  width ="100">
-                                            <?php } else { ?>
-                                                tidak ada gambar
-                                            <?php } ?>
-                                        </td>
-                                        <td>
-                                            <a href="e_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-warning">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </a>
-                                            <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick ="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
-                                                <i class="bi bi-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                    }
+
+                                            <tr>
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $hasil['nm_produk']; ?></td>
+                                                <td>Rp <?php echo number_format($hasil['harga'], 0, ',', '.'); ?></td>
+                                                <td><?php echo $hasil['stok']; ?></td>
+                                                <td><?php echo $hasil['desk']; ?></td>
+                                                <td><?php echo $hasil['nm_kategori']; ?></td>
+                                                <td>
+                                                    <?php if (!empty($hasil['gambar'])) { ?>
+                                                        <img src="produk_img/<?php echo $hasil['gambar']; ?>" width="100">
+                                                    <?php } else { ?>
+                                                        Tidak ada gambar
+                                                    <?php } ?>
+                                                </td>
+                                                <td>
+                                                    <a href="e_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-warning">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </a>
+                                                    <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        }
                                     } else {
                                         ?>
                                         <tr>
-                                            <td colspan="8" class ="text-center">data Tidak Ditemukan</td>
+                                            <td colspan="8" class="text-center">Data tidak ditemukan</td>
                                         </tr>
                                     <?php
                                     }
