@@ -90,7 +90,7 @@
                         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Beranda</a>
+                                    <a class="nav-link" href="index.php">Beranda</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="belanja.php">Belanja</a>
