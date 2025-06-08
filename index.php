@@ -24,6 +24,23 @@
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+           .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background: #f72a74;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 1;
+            min-width: 16px;
+            text-align: center;
+            z-index: 10;
+        }
+    </style>
 </head>
 
 <body>
@@ -254,10 +271,8 @@
                             </div>
                         </div>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="enter email address"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">book now</a>
+                                <a href="belanja.php" class="input-group-text btn_2" id="basic-addon2">CEK SEKARANG</a>
                             </div>
                         </div>
                     </div>

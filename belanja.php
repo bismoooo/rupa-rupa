@@ -220,6 +220,12 @@
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
                                 <div class="single_product_menu d-flex">
                                     <form method="GET" action="">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="search" placeholder="Cari produk..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                                            <div class="input-group-prepend">
+                                                <button type="submit" class="input-group-text"><i class="ti-search"></i></button>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

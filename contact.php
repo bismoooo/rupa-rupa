@@ -24,6 +24,23 @@
   <link rel="stylesheet" href="css/slick.css">
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <style>
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background: #f72a74;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 1;
+            min-width: 16px;
+            text-align: center;
+            z-index: 10;
+        }
+    </style>
 </head>
 
 <body>

@@ -234,11 +234,11 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                           <td><?php echo $hasil['nm_kategori']; ?></td>
                           <td>
                             <a href="e_kategori.php?id=<?php echo $hasil['id_kategori']; ?>" class="btn btn-warning">
-                              <i class="bi bi-pencil-square"></i>Edit
+                              <i class="bi bi-pencil-square"></i>
                             </a>
                             <a href="h_kategori.php?id=<?php echo $hasil['id_kategori']; ?>" class="btn btn-danger"
                             onclick="return confirm('Yakin ingin menghapus data ini?')">
-                              <i class="bi bi-trash"></i>Hapus
+                              <i class="bi bi-trash"></i>
                             </a>
                           </td>
                         </tr>
