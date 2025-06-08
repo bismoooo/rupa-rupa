@@ -125,13 +125,13 @@ if (isset($_POST['update'])) {
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="assets/img/jojo.jpeg" alt="Profile" class="rounded-circle">
                         <!-- profile-img.jpg diganti nama file gambar kalian -->
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Bismooooooo</h6>
+                            <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
                             <span>Admin</span>
                         </li>
                         <li>
@@ -272,8 +272,8 @@ if (isset($_POST['update'])) {
                                     <?php } ?>
                                 </div>
                                 <div class="text-center">
-                                    <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <button type="submit" class="btn btn-primary" name="update">Simpan</button>
+                                    <button type="submit" class="btn btn-primary" name="update">Update</button>
+                                    <a href="kategori.php" class="btn btn-secondary">Kembali</a>
                                 </div>
                             </form>
 

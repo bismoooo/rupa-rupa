@@ -105,7 +105,7 @@ if (isset($_POST['simpan'])) {
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Bismooooooooo</h6>
+              <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
               <span>Admin</span>
             </li>
             <li>
@@ -138,14 +138,14 @@ if (isset($_POST['simpan'])) {
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link " href="index.php">
+    <a class="nav-link collapsed" href="index.php">
       <i class="bi bi-houses-fill"></i>
       <span>Beranda</span>
     </a>
   </li><!-- End Beranda Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="kategori.php">
+    <a class="nav-link " href="kategori.php">
     <i class="bi bi-list-task"></i>
       <span>Kategori Produk</span>
     </a>
@@ -217,8 +217,8 @@ if (isset($_POST['simpan'])) {
                   placeholder="Masukkan Nama Kategori Produk" value="<?php echo $data['nm_kategori']; ?>">
                 </div>
                 <div class="text-center">
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                  <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
+                 <button type="submit" class="btn btn-primary" name="update">Update</button>
+                  <a href="kategori.php" class="btn btn-secondary">Kembali</a>
                 </div>
               </form>
             </div>
