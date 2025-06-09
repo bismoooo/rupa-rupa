@@ -24,7 +24,7 @@ $id = $_GET['id'];
 $sql = mysqli_query($koneksi, "SELECT * FROM tb_kategori WHERE id_kategori='$id'");
 $data = mysqli_fetch_array($sql);
 
-if (isset($_POST['simpan'])) {
+if (isset($_POST['update'])) {
     $nm_kategori = $_POST['nm_kategori'];
 
     $query = mysqli_query($koneksi, "UPDATE tb_kategori SET nm_kategori='$nm_kategori' WHERE id_kategori='$id'");

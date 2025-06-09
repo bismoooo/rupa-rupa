@@ -258,7 +258,7 @@ if (isset($_POST['update'])) {
                                         $query_kategori = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
                                         while ($kategori = mysqli_fetch_array($query_kategori)) {
                                             $selected = ($kategori['id_kategori'] == $data['id_kategori']) ? 'selected' : '';
-                                            echo "<option value='{$kategori['id_kategori']}' $selected>{$kategori['nm_kategori']}<option>";
+                                            echo "<option value='{$kategori['id_kategori']}' $selected>{$kategori['nm_kategori']}</option>";
                                         }
                                         ?>
                                     </select>
@@ -273,7 +273,7 @@ if (isset($_POST['update'])) {
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary" name="update">Update</button>
-                                    <a href="kategori.php" class="btn btn-secondary">Kembali</a>
+                                    <a href="produk.php" class="btn btn-secondary">Kembali</a>
                                 </div>
                             </form>
 
@@ -289,7 +289,7 @@ if (isset($_POST['update'])) {
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nama Website</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>RupaRupa</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             Designed by <a href="https://www.instagram.com/bsmawhy"
