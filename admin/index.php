@@ -127,35 +127,35 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
       </li><!-- End Kategori Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Produk.php">
+        <a class="nav-link collapsed" href="produk.php">
           <i class="bi bi-box-seam-fill"></i>
           <span>Produk</span>
         </a>
       </li><!-- End Produk Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Keranjang.php">
+        <a class="nav-link collapsed" href="keranjang.php">
         <i class="bi bi-cart4"></i>
           <span>Keranjang</span>
         </a>
       </li><!-- End Keranjang Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Transaksi.php">
+        <a class="nav-link collapsed" href="transaksi.php">
           <i class="bi bi-cash-stack"></i>
           <span>Transaksi</span>
         </a>
       </li><!-- End Transaksi Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Laporan.php">
+        <a class="nav-link collapsed" href="laporan.php">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Laporan</span>
         </a>
       </li><!-- End Laporan Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Pengguna.php">
+        <a class="nav-link collapsed" href="pengguna.php">
           <i class="bi bi-person-heart"></i>
           <span>Pengguna</span>
         </a>

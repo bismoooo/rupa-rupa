@@ -78,7 +78,7 @@ if (isset($_POST["login"])) {
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                   <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">RupaRupa Admin</span>
+                  <span class="d-none d-lg-block">RupaRupa</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -115,7 +115,7 @@ if (isset($_POST["login"])) {
 
               <div class="credits">
                 Designed by <a href="https://www.instagram.com/bsmawhy"
-      target="_blank">Bismooooooooo</a>
+                target="_blank">Bismooooooooo</a>
               </div>
 
             </div>

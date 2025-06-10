@@ -258,7 +258,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                                     <a href="e_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-warning">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                                                    <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Produk?')">
                                                         <i class="bi bi-trash"></i>
                                                     </a>
                                                 </td>
