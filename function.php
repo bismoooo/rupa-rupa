@@ -1,5 +1,5 @@
 <?php
-function regristasi($data) {
+function registrasi($data) {
     global $koneksi;
 
     $username = strtolower(stripslashes($data["username"]));

@@ -248,7 +248,7 @@ if (isset($_POST['update'])) {
                                 </div>
                                 <div class="col-12">
                                     <label for="desk" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="desk" name="desk" placeholder="Masukkan Deskripsi Produk" value="<?php echo $data['desk']; ?>" required></textarea>
+                                    <textarea class="form-control" id="desk" name="desk" required><?php echo $data['desk']; ?></textarea>
                                 </div>
                                 <div class="col-12">
                                     <label for="id_kategori" class="form-label">Kategori</label>

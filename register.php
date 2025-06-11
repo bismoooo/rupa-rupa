@@ -2,10 +2,8 @@
 
 require 'admin/koneksi.php';
 require 'function.php';
-$sql = mysqli_query($koneksi, "select * from tb_user");
+$sql = mysqli_query($koneksi, "SELECT * FROM tb_user");
 $data = mysqli_fetch_array($sql);
-
-
 ?>
 
 <!doctype html>
@@ -37,7 +35,7 @@ $data = mysqli_fetch_array($sql);
 </head>
 
 <body>
-    <?php
+     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (registrasi($_POST)) {
             echo "<script>alert('User baru berhasil ditambahkan');";
